@@ -1,0 +1,23 @@
+<!-- templates/teams/org_team_member_list.html -->
+{% for org in organizations %}
+    <h2>{{ org.name }}</h2>
+    <p>{{ org.description }} - {{ org.email }} - {{ org.location }}</p>
+    <h3>Teams</h3>
+    {% for team in org.teams.all %}
+        <h4>{{ team.name }}</h4>
+        <p>{{ team.description }}</p>
+        <h5>Members</h5>
+        <ul>
+            {% for member in team.members.all %}
+                <li>
+                    {{ member.name }} - {{ member.unique_id }}
+                    {% if member.profile_image %}
+                        <span style="color: green;">Image Uploaded</span>
+                    {% else %}
+                        <span style="color: red;">Image Not Uploaded</span>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+{% endfor %}

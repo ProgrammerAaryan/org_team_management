@@ -1,0 +1,7 @@
+<!-- templates/teams/member_upload.html -->
+<h2>Upload Member Profile</h2>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Upload</button>
+</form>
