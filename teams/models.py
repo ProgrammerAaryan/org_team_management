@@ -4,7 +4,7 @@ import uuid
 from django.utils import timezone
 
 class Organization(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=100)
     description = models.TextField()
     email = models.EmailField(default='example@example.com')
     location = models.CharField(max_length=255, default="Unknown Location")
